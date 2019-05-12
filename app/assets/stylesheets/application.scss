@@ -1,3 +1,11 @@
-@import "./reset";
-@import "./variable";
+@import "reset";
+@import "./config/variable";  
 @import "font-awesome";
+@import "box-sizing";
+@import "info";
+@import "sidebar";
+@import "contents";
+@import "chat-screen";
+@import "icon";
+@import "message-box";
+@import "link";
