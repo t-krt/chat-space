@@ -1,0 +1,30 @@
+.contents
+  .contents-header
+    .contents-header__name
+      sample
+    .contents-header__edit-btn
+      =link_to("Edit", "/", class: "edit-link") 
+    .contents-header__member
+      Member : name1 name2
+  .chat-screen
+    %ul.chat-messeages
+      %li.chat-messages__name<
+        name1
+      %li.chat-messages__time
+        2019/01/01 00:00:00
+      %li.chat-messages__text
+        こんにちは!
+      %li.chat-messages__name<
+        name2
+      %li.chat-messages__time
+        2019/01/02 00:00:00
+      %li.chat-messages__text
+        こんばんは!
+  .contents-bottom
+    %form.send-message{ action: "/", method: "post"}
+      .send-message__box
+        %textarea.send-message__box--input{ name: "text", placeholder: "type a message"}
+        %label.upload-label{for: "upload-icon"}
+          %i.fa.fa-picture-o.fa-lg
+          %input.upload-label__icon{ type: "file", id: "upload-icon"} 
+      %input.send-message__submit-btn{ type: "submit", value: "Send"}
