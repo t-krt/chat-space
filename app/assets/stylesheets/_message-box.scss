@@ -1,0 +1,37 @@
+.send-message {
+  display: flex;
+  height: 50px;
+  &__box{
+    position: relative;
+    width: 100%;
+    z-index: 0;
+    &--input {
+      border-style: none;
+      resize: none;
+      color: $color-text-black;
+      font-size: 16px;
+      height: 100%;
+      line-height: 50px;
+      padding-left: 10px;
+      width: 100%;
+    }
+  }
+  &__submit-btn {
+    background-color: $color-accent;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 0 30px;
+    margin-left: 15px;
+  }
+}
+
+.upload-label {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  &__icon {
+    display: none;
+  }
+}
