@@ -1,0 +1,43 @@
+@mixin contents-side-padding {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.contents {
+  float: right;
+  height: 100vh;
+  width: calc(100vw - 300px);
+}
+
+.contents-header {
+  border-bottom: thin solid #eeeeee;
+  height: 100px;
+  padding-top: 28px;
+  @include contents-side-padding;
+  &__name {
+    color: #333333;
+    font-size: 20px;
+    float: left;
+    padding: 7px 0 15px 0;
+  }
+  &__edit-btn {
+    border: thin solid $color-accent;
+    cursor: pointer;
+    float: right;
+    line-height: 40px;
+    padding: 0 20px;
+  }
+  &__member {
+    clear: both;
+    color: $color-text-gray;
+    font-size: 12px;
+  }
+}
+
+.contents-bottom {
+  background-color:#ddd;
+  height: 90px;
+  padding-top: 20px;
+  width: 100%;
+  @include contents-side-padding;
+}
