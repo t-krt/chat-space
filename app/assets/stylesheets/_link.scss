@@ -1,0 +1,10 @@
+@mixin link {
+  text-decoration: none;
+}
+
+.edit-link {
+  @include link;
+  &:visited {
+    color: $color-accent;
+  }
+}
