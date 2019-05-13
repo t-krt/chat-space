@@ -1,13 +1,13 @@
 .sidebar
   .side-header
     .side-header__name
-      username
+      = current_user.name
     %ul.menu
       %li.menu__create-group
         =link_to "" do 
           %i.fa.fa-edit
       %li.menu__settings
-        =link_to "" do
+        =link_to edit_user_path(current_user) do
           %i.fa.fa-cog
   .groups
     %ul.group-list
