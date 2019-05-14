@@ -3,11 +3,16 @@
   padding-right: 40px;
 }
 
-.sidebar {
+@mixin sidebar-text-style {
   color: $color-text-white;
-  float: left;
   font-weight: bold;
+  text-decoration: none;
+}
+
+.sidebar {
+  float: left;
   width: 300px;
+  @include sidebar-text-style;
 }
 
 .side-header{
@@ -41,7 +46,8 @@
   @include sidebar-side-padding;
 }
 
-.group-list{
+.group {
+  @include sidebar-text-style;
   &__name {
     font-size: 15px;
   }
