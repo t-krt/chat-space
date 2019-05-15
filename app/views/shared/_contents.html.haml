@@ -3,7 +3,7 @@
     .contents-header__name
       sample
     .contents-header__edit-btn
-      =link_to("Edit", root_path, class: "edit-link") 
+      =link_to("Edit", edit_group_path(current_user), class: "edit-link") 
     .contents-header__member
       Member : name1 name2
   .chat-screen
