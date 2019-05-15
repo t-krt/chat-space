@@ -10,12 +10,10 @@
         =link_to edit_user_path(current_user) do
           %i.fa.fa-cog
   .groups
-    %ul.group-list
-      %li.group-list__name
-        sample-group1
-      %li.group-list__message
-        sample-message1
-      %li.group-list__name
-        sample-group2
-      %li.group-list__message
-        sample-message2
+    - current_user.groups.each do |group|
+      =link_to group_messages_path(group) do
+        .group
+          .group__name
+            =group.name
+          .group__message
+            メッセージはまだありません
