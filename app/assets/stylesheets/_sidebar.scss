@@ -11,7 +11,9 @@
 
 .sidebar {
   float: left;
+  height: 100vh;
   width: 300px;
+  overflow: scroll;
   @include sidebar-text-style;
 }
 
