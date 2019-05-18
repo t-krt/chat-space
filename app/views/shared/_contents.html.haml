@@ -5,7 +5,8 @@
     .contents-header__edit-btn
       =link_to("Edit", edit_group_path(current_user), class: "edit-link") 
     .contents-header__member
-      Member : name1 name2
+      Members : 
+      = @users.map {|user| user.name }.join(', ')
   .chat-screen
     = render partial: 'message', collection: @messages
   .contents-bottom
