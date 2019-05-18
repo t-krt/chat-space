@@ -5,21 +5,10 @@
     .contents-header__edit-btn
       =link_to("Edit", edit_group_path(current_user), class: "edit-link") 
     .contents-header__member
-      Member : name1 name2
+      Members : 
+      = @users.map {|user| user.name }.join(', ')
   .chat-screen
-    %ul.chat-messeages
-      %li.chat-messages__name<
-        name1
-      %li.chat-messages__time
-        2019/01/01 00:00:00
-      %li.chat-messages__text
-        こんにちは!
-      %li.chat-messages__name<
-        name2
-      %li.chat-messages__time
-        2019/01/02 00:00:00
-      %li.chat-messages__text
-        こんばんは!
+    = render partial: 'message', collection: @messages
   .contents-bottom
     = form_for [@group, @message], html: {class: "send-message"} do |f|
       .send-message__box
