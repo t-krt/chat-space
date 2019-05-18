@@ -21,10 +21,11 @@
       %li.chat-messages__text
         こんばんは!
   .contents-bottom
-    %form.send-message{ action: root_path, method: "post"}
+    = form_for [@group, @message], html: {class: "send-message"} do |f|
       .send-message__box
-        %textarea.send-message__box--input{ name: "text", placeholder: "type a message"}
-        %label.upload-label{for: "upload-icon"}
-          %i.fa.fa-picture-o.fa-lg
-          %input.upload-label__icon{ type: "file", id: "upload-icon"} 
-      %input.send-message__submit-btn{ type: "submit", value: "Send"}
+        = f.text_field :content, class: "send-message__box--input", placeholder: "type a message"
+        = f.label :image, class: "upload-label" do
+          = fa_icon 'picture-o'
+          = f.file_field :image, class: 'upload-label__icon'
+      = f.submit "Send", class: "send-message__submit-btn"
+      
