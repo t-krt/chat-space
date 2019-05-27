@@ -10,11 +10,11 @@
   .chat-screen
     = render partial: 'message', collection: @messages
   .contents-bottom
-    = form_for [@group, @message], html: {class: "send-message"} do |f|
+    = form_for [@group, @message], html: { id: "new-message", class: "send-message"} do |f|
       .send-message__box
-        = f.text_field :content, class: "send-message__box--input", placeholder: "type a message"
+        = f.text_field :content, class: "send-message__box--input new-message__text", placeholder: "type a message"
         = f.label :image, class: "upload-label" do
           = fa_icon 'picture-o'
-          = f.file_field :image, class: 'upload-label__icon'
+          = f.file_field :image, class: 'upload-label__icon new-message__image'
       = f.submit "Send", class: "send-message__submit-btn"
       
