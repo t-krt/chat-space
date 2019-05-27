@@ -3,10 +3,10 @@
     .contents-header__name
       sample
     .contents-header__edit-btn
-      =link_to("Edit", edit_group_path(current_user), class: "edit-link") 
+      =link_to("Edit", edit_group_path(params[:group_id]), class: "edit-link") 
     .contents-header__member
       Members : 
-      = @users.map {|user| user.name }.join(', ')
+      = @users.map{|user| user.name }.join(', ')
   .chat-screen
     = render partial: 'message', collection: @messages
   .contents-bottom
