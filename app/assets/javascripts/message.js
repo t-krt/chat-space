@@ -29,6 +29,9 @@ $(function(){
       var html = buildHTML(data);
       $('.chat-screen').append(html);
       $('.chat-screen').animate({scrollTop: $('.chat-screen')[0].scrollHeight});
+      $('.new-message__text').val("");
+      $('.new-message__image').val("");
+      $('.send-message__submit-btn').attr('disabled', false);
     })
   });
 });
