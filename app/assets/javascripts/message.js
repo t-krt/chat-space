@@ -33,5 +33,9 @@ $(function(){
       $('.new-message__image').val("");
       $('.send-message__submit-btn').attr('disabled', false);
     })
+    .fail(function(){
+      alert('メッセージを画像を入力してください')
+      $('.send-message__submit-btn').attr('disabled', false);
+    })
   });
 });
