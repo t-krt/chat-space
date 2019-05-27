@@ -27,6 +27,8 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
+      $('.chat-screen').append(html);
+      $('.chat-screen').animate({scrollTop: $('.chat-screen')[0].scrollHeight});
     })
   });
 });
