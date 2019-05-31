@@ -1,20 +1,20 @@
 $(document).on("ready turbolinks:load", function() {
-  var search_user_list = $('#user-search-result')
-  var group_members = $('.chat-group-users')
+  var user_search_result = $('#user-search-result')
+  var group_users = $('.chat-group-users')
 
-  function appendUser(user) {
+  function appendUserToSearchResult(user) {
     var html = `<div class="chat-group-user clearfix" id="chat-group-user-8">
                   <p class="chat-group-user__name">${ user.name }</p>
                   <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${ user.id }" data-user-name="${ user.name }">追加</div>
                 </div>`
-    search_user_list.append(html);
+    user_search_result.append(html);
   }
 
-  function appendNoUserToHTML(msg) {
+  function appendNoUserToSearchResult(msg) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${ msg }</p>
                 </div>`
-    search_user_list.append(html)
+    user_search_result.append(html)
   }
 
   function appendUserToGroup(user_id, user_name) {
@@ -23,9 +23,8 @@ $(document).on("ready turbolinks:load", function() {
                   <p class='chat-group-user__name'>${ user_name }</p>
                   <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id="${ user_id }">削除</div>
                 </div>`
-    group_members.append(html)
+    group_users.append(html)
   }
-
 
   $(document).on('click', ".user-search-add", function(){
     var user_id = $(this).data('user-id')
@@ -51,11 +50,11 @@ $(document).on("ready turbolinks:load", function() {
       $('#user-search-result').empty();
       if(users.length !== 0) {
         users.forEach(function(user){
-          appendUser(user);
+          appendUserToSearchResult(user);
         });
       }
       else {
-        appendNoUserToHTML('一致するユーザーが見つかりません')
+        appendNoUserToSearchResult('一致するユーザーが見つかりません')
       }
     })
     .fail(function() {
