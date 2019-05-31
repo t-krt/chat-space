@@ -1,7 +1,7 @@
 .contents
   .contents-header
     .contents-header__name
-      sample
+      = @group.name
     .contents-header__edit-btn
       =link_to("Edit", edit_group_path(params[:group_id]), class: "edit-link") 
     .contents-header__member
