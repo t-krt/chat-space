@@ -43,12 +43,12 @@ $(document).on("turbolinks:load", function(){
   // 自動更新機能の実装
   var autoUpdate = setInterval(function() {
     var groupId = $('.contents-header').data('group-id')
-    var last_message_id = $('.chat-messages').last().data('id')
+    var lastMessageId = $('.chat-messages').last().data('id')
     if (document.URL.match(/\/groups\/\d+\/messages/)) {
       $.ajax({
         type: 'GET',
         url: `/groups/${groupId}/api/messages`,
-        data: {id: last_message_id},
+        data: {id: lastMessageId},
         dataType: 'json'
       })
       .done(function(messages) {
