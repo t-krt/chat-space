@@ -50,14 +50,19 @@ $(document).on("ready turbolinks:load", function() {
       .done(function(users) {
         userSearchResult.empty();
         if(users.length !== 0) {
+          var userIds = [];
+          $('.user-search-remove').each(function(){
+            userIds.push($(this).data('user-id-append'));
+          });
           users.forEach(function(user){
-            if (user.id !== $('.user-search-remove').data('user-id-append')){
+            if (userIds.indexOf(user.id) === -1){
               appendUserToSearchResult(user);
-            } else {
-              appendNoUserToSearchResult('一致するユーザーが見つかりません');
-            }
+            } 
           });
         } else {
+          appendNoUserToSearchResult('一致するユーザーが見つかりません');
+        }
+        if (!(userSearchResult.children().length)){
           appendNoUserToSearchResult('一致するユーザーが見つかりません');
         }
       })
