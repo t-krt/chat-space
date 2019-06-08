@@ -5,19 +5,19 @@ $(document).on("turbolinks:load", function(){
     var messageContent = `<li class="chat-messages__text">${ message.content }</li>`;
     var messageImage = `<li class="chat-messages__image">
                           <img src="${ message.image }" > 
-                        </li>` 
+                        </li>`;
     var html = `<ul class="chat-messages" data-id="${ message.id }">
                 ${ messageName } 
-                ${ messageTime }`
+                ${ messageTime }`;
     html += (message.content) ? `${ messageContent }` : `<li class="chat-messages__text"></li>`;
     html += (message.image) ? `${ messageImage }  </ul>` : `</ul>`;
-    return html
+    return html;
   }
 
   $('#new-message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
-    var url = window.location.href
+    var url = window.location.href;
     $.ajax({
       type: 'POST',
       url: url,
@@ -35,15 +35,15 @@ $(document).on("turbolinks:load", function(){
       $('.send-message__submit-btn').attr('disabled', false);
     })
     .fail(function(){
-      alert('メッセージを入力するか、画像を選択してください')
+      alert('メッセージを入力するか、画像を選択してください');
       $('.send-message__submit-btn').attr('disabled', false);
     })
   });
 
   // 自動更新機能の実装
   var autoUpdate = setInterval(function() {
-    var groupId = $('.contents-header').data('group-id')
-    var lastMessageId = $('.chat-messages').last().data('id')
+    var groupId = $('.contents-header').data('group-id');
+    var lastMessageId = $('.chat-messages').last().data('id');
     if (document.URL.match(/\/groups\/\d+\/messages/)) {
       $.ajax({
         type: 'GET',
