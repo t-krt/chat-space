@@ -6,7 +6,6 @@
 @mixin sidebar-text-style {
   color: $color-text-white;
   font-weight: bold;
-  text-decoration: none;
 }
 
 .sidebar {
@@ -46,6 +45,9 @@
   height: calc(100vh - 100px);
   padding-top: 20px;
   @include sidebar-side-padding;
+  a {
+    text-decoration: none;
+  }
 }
 
 .group {
